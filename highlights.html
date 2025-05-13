@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlights</title>
+    <link rel="stylesheet" href="style/highlights.css">
+    <link rel="stylesheet" href="style/index.css">
+</head>
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 10px 10px;
+            }
+
+            #login-form {
+                margin-bottom: 20px;
+            }
+
+            #post-form {
+                display: none;
+            }
+
+            #highlights-container {
+                margin-top: 20px;
+            }
+
+            .highlight {
+                background-color: #fff;
+                padding: 20px;
+                margin-bottom: 20px;
+                border: 1px solid #ddd;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .highlight img, .highlight video {
+                width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            .comment-form {
+                margin-top: 10px;
+            }
+
+            .comment {
+                margin-top: 10px;
+                padding: 10px;
+                background-color: #f7f7f7;
+                border: 1px solid #ddd;
+            }
+            nav {
+            display: flex;
+            align-items: center;
+            }
+            
+            nav h1 {
+                color: #0099ff; /* Royal Blue */
+                font-size: 24px;
+                font-weight: bold;
+                margin-right: 20px;
+            }
+            
+            button {
+                background-color: #8bc34a; /* Light Green */
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            
+            button:hover {
+                background-color: #7cb342;
+            }
+
+            
+            nav {
+                background-color: #333;
+                color: #fff;
+                padding: 1em;
+                text-align: center;
+            }
+            
+            .nav-toggle {
+                cursor: pointer;
+                display: none;
+            }
+            
+            .nav-toggle span {
+                background-color: #fff;
+                display: block;
+                height: 4px;
+                margin-bottom: 5px;
+                width: 20px;
+            }
+            
+            #nav-menu {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            
+            #nav-menu li {
+                display: inline-block;
+                margin-right: 20px;
+            }
+            
+            #nav-menu a {
+                color: #fff;
+                text-decoration: none;
+            }
+            
+            #nav-menu a:hover {
+                color: #ccc;
+            }
+</style>
+
+<body style="background-image:url('dev.png'); background-size: cover; background-position: center; background-repeat: no-repeat; backdrop-filter: blur(20px);">
+    
+    <nav>
+        <div class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="announcement.html">Latest Announcements</a></li>
+          <!--<li><a href="highlights.html">Highlights</a></li>-->
+          <li><a href="login.html">Apply Here</a></li>
+        </ul>
+      </nav>
+
+
+    <h1>Highlights</h1>
+    <div id="login-form">
+        <input type="password" id="password" placeholder="Enter password">
+        <button id="login-btn">Login</button>
+    </div>
+    <div id="post-form" style="display: none;">
+        <input type="text" id="post-title" placeholder="Post title">
+        <textarea id="post-content" placeholder="Post content"></textarea>
+        <input type="file" id="post-media" accept="image/*, video/*">
+        <button id="post-btn">Post</button>
+        <button id="clear-posts-btn">Clear Post</button>
+    </div>
+    <div id="highlights-container"></div>
+    
+    <P style="color: rgb(0, 85, 138); text-align: center;">&copy; 2025. All rights reserved.</P>
+
+    <script src="script/highlights.js"></script>
+</body>
+
+</html>
