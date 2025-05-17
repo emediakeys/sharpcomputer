@@ -19,14 +19,94 @@
         margin-top: 50px;
         padding: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        background-color: #fff;
+        backdrop-filter: blur(20px);    
       }
+      nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        nav h1 {
+            color: #0099ff; /* Royal Blue */
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        
+        button {
+            background-color: #8bc34a; /* Light Green */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #7cb342;
+        }
+
+        
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        
+        .nav-toggle {
+            cursor: pointer;
+            display: none;
+        }
+        
+        .nav-toggle span {
+            background-color: #fff;
+            display: block;
+            height: 4px;
+            margin-bottom: 5px;
+            width: 20px;
+        }
+        
+        #nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #nav-menu li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        
+        #nav-menu a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        #nav-menu a:hover {
+            color: #ccc;
+        }
     </style>
   </head>
-  <body class="bg-light">
+  <body class="bg-light" style="background-image:url('dev.png'); background-size: cover; background-position: center; background-repeat: no-repeat; backdrop-filter: blur(20px);">
+
+    <nav>
+        <div class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="announcement.html">Latest Announcements</a></li>
+          <li><a href="highlights.html">Highlights</a></li>
+          <!--<li><a href="login.html">Apply Here</a></li>-->
+        </ul>
+      </nav>
+    
     <div class="container">
       <div class="form-container">
-        <h4 class="text-center mb-4">Registration Form</h4>
+        <h4 class="text-center mb-4">SHARP COMPUTER REG FORM</h4>
         <form id="submit-to-google-sheet">
           <div class="form-group">
             <label for="name">Name:</label>
@@ -71,12 +151,12 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="loc">Course of choice:</label>
+            <label for="loc">Course of Choice:</label>
             <input
               class="form-control"
-              type="chechbox"
               name="message"
               id="message"
+              placeholder="Course of Study i.e Diploma"
               required
             ></input>
 
