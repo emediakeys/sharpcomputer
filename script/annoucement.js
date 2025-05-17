@@ -5,13 +5,18 @@ let postBtn = document.getElementById('post-btn');
 let clearBtn = document.getElementById('clear-btn');
 let announcementDisplay = document.getElementById('announcement-display');
 let passwordInput = document.getElementById('password');
-
 let authorizedPassword = 'Mymedia@dgems'; // Replace with your desired password
+let scriptUrl = 'https://script.google.com/macros/s/AKfycbxh608XWpsdvvI4voiUnJyXkE6ElY64PomRZPSfin9xgwt2RD6i9bIjmfBxZEYICUS8lg/exec';
 
-// Check if there's an existing announcement in localStorage
-if (localStorage.getItem('announcement')) {
-    announcementDisplay.innerText = localStorage.getItem('announcement');
-}
+// Get the announcement from the Google Apps Script
+fetch(scriptUrl)
+    .then(response => response.json())
+    .then(data => {
+        if (data.announcement) {
+            announcementDisplay.innerText = data.announcement;
+        }
+    })
+    .catch(error => console.error(error));
 
 loginBtn.addEventListener('click', () => {
     let enteredPassword = passwordInput.value;
@@ -26,14 +31,34 @@ loginBtn.addEventListener('click', () => {
 postBtn.addEventListener('click', () => {
     let announcementText = document.getElementById('announcement').value;
     if (announcementText !== '') {
-        announcementDisplay.innerText = announcementText;
-        localStorage.setItem('announcement', announcementText); // Store the announcement in localStorage
-        document.getElementById('announcement').value = '';
+        fetch(scriptUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `announcement=${announcementText}&action=set`
+        })
+        .then(response => response.json())
+        .then(data => {
+            announcementDisplay.innerText = announcementText;
+            document.getElementById('announcement').value = '';
+        })
+        .catch(error => console.error(error));
     }
 });
 
 clearBtn.addEventListener('click', () => {
-    announcementDisplay.innerText = '';
-    localStorage.removeItem('announcement'); // Remove the announcement from localStorage
-    document.getElementById('announcement').value = '';
+    fetch(scriptUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `action=clear`
+    })
+    .then(response => response.json())
+    .then(data => {
+        announcementDisplay.innerText = '';
+        document.getElementById('announcement').value = '';
+    })
+    .catch(error => console.error(error));
 });
