@@ -197,49 +197,50 @@
             margin-top: 0
         }
 
-        .comment-section {
-            backdrop-filter: blur(50px);
-            padding: 2em;
+        *{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: 'poppins', sans-serif;
+	font-size: 18px;
         }
-
-        #comment-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        body{
+        	height: 100vh;
+        	display: flex;
+        	align-items: center;
+        	justify-content: center;
         }
-
-        #comment-form input, #comment-form textarea {
-            margin-bottom: 1em;
-            padding: 0.5em;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-            box-sizing: border-box;
+        .container{
+        	width: 500px;
+        	padding: 30px;
+        	border: 1px solid #eeeeee;
+        	border-radius: 10px;
+        	background-color: #003b5b;
         }
-
-        #submit-comment {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 0.5em 1em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        h4{
+        	margin-bottom: 10px;
+        	font-size: 24px;
+        	color: white;
         }
-
-        #comments-container {
-            margin-top: 2em;
+        input{
+        	width: 100%;
+        	padding: 10px;
+        	margin-bottom: 10px;
         }
-
-        .comment {
-            background-color: #f7f7f7;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 1em;
-            margin-bottom: 1em;
+        textarea{
+        	width: 100%;
+        	padding: 10px;
         }
-
-        .comment h3 {
-            margin-top: 0;
+        #submit{
+        	border: none;
+        	background-color: orangered;
+        	color: white;
+        	width: 200px;
+        	margin-top: 10px;
+        	border-radius: 5px;
+        }
+        #submit:hover{
+        	background-color: #333333;
         }
 
 
