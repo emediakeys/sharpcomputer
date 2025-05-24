@@ -1,142 +1,1270 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="style/index.css">
-</head>
-
-<style>
-        
-</style>
-
-<body style="background-image:url('dev.JPG'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-    
-    <header>
-            <div class="header">
-                <div class="logo">
-                    <img src="logo.png">
-                </div>
-                <nav>
-                    <div class="nav-toggle" id="nav-toggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <ul id="nav-menu">
-                        <!--<li><a href="index.html">Home</a></li>-->
-                        <li><a href="announcement.html">Latest Announcements</a></li>
-                        <li><a href="highlights.html">Highlights</a></li>
-                        <li><a href="login.html">Apply Here</a></li>
-                    </ul>
-                </nav>
-                <div>
-                    <h1>Education Evolved</h1>
-                </div>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCTI Home Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3b82f6",
+              secondary: "#64748b",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Inter', sans-serif;
+      }
+      .card-slider {
+      scroll-behavior: smooth;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      }
+      .card-slider::-webkit-scrollbar {
+      display: none;
+      }
+      .hero-section {
+      background-image: url(/dev.JPG);
+      background-size: cover;
+      background-position: center right;
+      }
+      .hero-content {
+      background: linear-gradient(90deg, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0.8) 70%, rgba(255,255,255,0) 100%);
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+      }
+      .custom-checkbox {
+      position: relative;
+      cursor: pointer;
+      }
+      .custom-checkbox input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      }
+      .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      background-color: #fff;
+      border: 2px solid #d1d5db;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      }
+      .custom-checkbox input:checked ~ .checkmark {
+      background-color: #3b82f6;
+      border-color: #3b82f6;
+      }
+      .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+      }
+      .custom-checkbox input:checked ~ .checkmark:after {
+      display: block;
+      }
+      .custom-checkbox .checkmark:after {
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      }
+      .topic-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .topic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .slider-dot {
+      transition: all 0.3s ease;
+      }
+      .slider-dot.active {
+      width: 24px;
+      background-color: #3b82f6;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header
+      class="fixed top-0 left-0 right-0 bg-white bg-opacity-95 shadow-sm z-50"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <a href="index.html" class="text-2xl font-['Pacifico'] text-primary"><img src="/logo.png" style="width: 80px;"></a>
+        <nav class="hidden md:flex items-center space-x-8">
+          <a
+            href="#"
+            id="home-link"
+            class="font-medium hover:text-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="courses.html"
+            data-readdy="true"
+            class="font-medium hover:text-primary transition-colors"
+            >Courses</a
+          >
+          <a href="#" class="font-medium hover:text-primary transition-colors"
+            >Resources</a
+          >
+          <a href="#" class="font-medium hover:text-primary transition-colors"
+            >About</a
+          >
+          <a href="#" class="font-medium hover:text-primary transition-colors"
+            >Contact</a
+          >
+        </nav>
+        <div class="flex items-center space-x-4">
+          <a
+            href="#"
+            class="hidden md:block font-medium text-gray-600 hover:text-primary transition-colors"
+            >Sign In</a
+          >
+          <a
+            href="#apply"
+            class="bg-primary text-white px-6 py-2 rounded-button font-medium shadow-sm hover:bg-blue-600 transition-colors whitespace-nowrap"
+            >Apply Now</a
+          >
+          <button
+            class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700"
+            id="mobile-menu-button"
+          >
+            <i class="ri-menu-line ri-lg"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div class="md:hidden hidden bg-white" id="mobile-menu">
+        <div class="container mx-auto px-6 py-4 space-y-4">
+          <a
+            href="#"
+            class="block font-medium hover:text-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="#"
+            class="block font-medium hover:text-primary transition-colors"
+            >Courses</a
+          >
+          <a
+            href="#"
+            class="block font-medium hover:text-primary transition-colors"
+            >Resources</a
+          >
+          <a
+            href="#"
+            class="block font-medium hover:text-primary transition-colors"
+            >About</a
+          >
+          <a
+            href="#"
+            class="block font-medium hover:text-primary transition-colors"
+            >Contact</a
+          >
+          <a
+            href="#"
+            class="block font-medium hover:text-primary transition-colors"
+            >Sign In</a
+          >
+        </div>
+      </div>
     </header>
-
-    <main>
-       
-        <section class="cards-section">
-            
-            <div class="card2" style="text-align: justify;">
-                <h2 class="cardh2" style="color: greenyellow">Courses Break-down</h2>
-                <p>We offer 2 courses.
-                    <ul>
-                        <li>Diploma</li>
-                        <li>Computer Appreciation Certificate</li>
-                    </ul>
-                </p>
-                
-                <p>
-                    In <b>Diploma</b>, we offer the following sub-courses
-                    <ul>
-                        <li>Three 3 MS Officer's programmes. i.e. MS Word, Ms PowerPoint and MS Excel. and Publisher (optional) </li>
-                        <li>Graphic Design: CorelDraw</li>
-                        <li> and Internet</li>
-                    </ul>
-                    Course Duration 6 months
-                </p>
-                <p>
-                    and in <b>Computer Appreciation</b>, we offer tutorials on the basic aspects of computer. By the end of this course, a student should be able to run basic tasks for himself in a computer. 
-                </p>
+    <!-- Hero Section -->
+    <section class="hero-section pt-28 pb-16 md:pt-32 md:pb-24">
+      <div class="container mx-auto px-6 w-full">
+        <div class="hero-content max-w-2xl py-16 px-8 md:px-12">
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+            Master Computer Knowledge for the Digital Age
+          </h1>
+          <p class="text-lg md:text-xl text-gray-700 mb-8">
+            Expand your tech skills with expert-led courses at SHARP COMPUTER TRAINING INSTITUTION.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#apply"
+              class="bg-primary text-white px-8 py-3 rounded-button font-medium text-center shadow-md hover:bg-blue-600 transition-colors whitespace-nowrap"
+              >Apply Now</a
+            >
+            <a
+              href="courses.html"
+              class="bg-white text-primary border-2 border-primary px-8 py-3 rounded-button font-medium text-center hover:bg-gray-50 transition-colors whitespace-nowrap"
+              >Explore Courses</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Stats Section -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="text-4xl font-bold text-primary mb-2">100+</div>
+            <p class="text-gray-600">Students Enrolled</p>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-primary mb-2">10+</div>
+            <p class="text-gray-600">Biginner Courses</p>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-primary mb-2">98%</div>
+            <p class="text-gray-600">Student Satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Sliding Cards Section -->
+    <section id="courses" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Popular Computer Courses</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Discover our most sought-after courses designed to help you master
+            essential computer skills and advance your career.
+          </p>
+        </div>
+        <div class="relative">
+          <button
+            id="prev-btn"
+            class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full shadow-md w-12 h-12 flex items-center justify-center text-gray-700 hover:bg-gray-100 focus:outline-none -ml-6 hidden md:flex"
+          >
+            <i class="ri-arrow-left-s-line ri-lg"></i>
+          </button>
+          <div class="overflow-x-auto card-slider" id="card-slider">
+            <div class="flex gap-6 py-4 px-2 min-w-max">
+              <!-- Card 1 -->
+              <div
+                class="bg-white rounded-lg shadow-md overflow-hidden w-72 flex-shrink-0"
+              >
+                <div class="h-48 overflow-hidden">
+                  <img
+                    src="/slide (1).jpeg"
+                    alt="Web Development"
+                    class="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 class="font-bold text-xl mb-2">Microsoft Office</h3>
+                  <p class="text-gray-600 mb-4">
+                    Learn MS Word, MS Excel, Ms PowerPoint and and Publisher for office works.
+                  </p>
+                  <a href="#" class="text-primary font-medium hover:underline"
+                    >Learn More</a
+                  >
+                </div>
+              </div>
+              <!-- Card 2 -->
+              <div
+                class="bg-white rounded-lg shadow-md overflow-hidden w-72 flex-shrink-0"
+              >
+                <div class="h-48 overflow-hidden">
+                  <img
+                    src="/slide (4).jpeg"
+                    alt="Data Science"
+                    class="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 class="font-bold text-xl mb-2">Graphic Design</h3>
+                  <p class="text-gray-600 mb-4">
+                    Master Graphic Design, Logo Design and branding
+                    techniques using Design tools like, CorelDraw, Photoshop etc.
+                  </p>
+                  <a href="#" class="text-primary font-medium hover:underline"
+                    >Learn More</a
+                  >
+                </div>
+              </div>
+              <!-- Card 3 -->
+              <div
+                class="bg-white rounded-lg shadow-md overflow-hidden w-72 flex-shrink-0"
+              >
+                <div class="h-48 overflow-hidden">
+                  <img
+                    src="/slide (2).jpeg"
+                    alt="Cybersecurity"
+                    class="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 class="font-bold text-xl mb-2">Internet</h3>
+                  <p class="text-gray-600 mb-4">
+                    Learn how the internet works and how to use the systems to do reseach for projects, assignments etc.
+                  </p>
+                  <a href="#" class="text-primary font-medium hover:underline"
+                    >Learn More</a
+                  >
+                </div>
+              </div>
+              <!-- Card 4 -->
+              <div
+                class="bg-white rounded-lg shadow-md overflow-hidden w-72 flex-shrink-0"
+              >
+                <div class="h-48 overflow-hidden">
+                  <img
+                    src="/slide (6).jpeg"
+                    alt="Artificial Intelligence"
+                    class="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 class="font-bold text-xl mb-2">
+                    Adult Classes
+                  </h3>
+                  <p class="text-gray-600 mb-4">
+                    We provide convenient and flexible adult classes, for those that a busy with work.
+                  </p>
+                  <a href="#" class="text-primary font-medium hover:underline"
+                    >Learn More</a
+                  >
+                </div>
+              </div>
+              <!-- Card 5 -->
+              
             </div>
+          </div>
+          <button
+            id="next-btn"
+            class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full shadow-md w-12 h-12 flex items-center justify-center text-gray-700 hover:bg-gray-100 focus:outline-none -mr-6 hidden md:flex"
+          >
+            <i class="ri-arrow-right-s-line ri-lg"></i>
+          </button>
+        </div>
+        <div class="flex justify-center mt-8 gap-2" id="slider-dots">
+          <button class="slider-dot h-2 w-6 bg-primary rounded-full"></button>
+          <button class="slider-dot h-2 w-2 bg-gray-300 rounded-full"></button>
+          <button class="slider-dot h-2 w-2 bg-gray-300 rounded-full"></button>
+        </div>
+      </div>
+    </section>
+    <!-- Featured Topics Grid -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Explore Computer Topics</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Dive into our comprehensive library of computer knowledge across
+            various domains and specializations.
+          </p>
+        </div>
 
-            <div class="card2">
-                <picture> 
-                    <img src="dev1.jpg" style="max-width: 100%; height: auto;">
-                </picture>
-                <h2 style="margin-bottom: 0px;color: black;">Hussaini Achem Isah</h2>
-                <h2 style="margin-top: 0px; margin-bottom: 0px; color: rgb(0, 85, 138);">Director</h2>
-                <p style="margin-top: 0px; margin-bottom: 0px; color: red;">Kogi State</p>
-                <h2 style="margin-bottom: 0px; color: rgb(0, 85, 138);">Contact</h2>
-                <p style="margin-top: 0px;color: black;">Tel: 08151234227 | Email: hafiz4progress@gmail.com</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Topic 1 -->
+          <div
+            class="topic-card bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
+          >
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="ri-code-s-slash-line ri-lg text-primary"></i>
             </div>
-
-            <div class="card2">
-                <h2 style="color: greenyellow">Registration Info</h2>
-                <p>To apply to the <b>SHARP COMPUTER TRAINING INSTITUTION (SCTI)</b> click on the "Apply Here" link at the heading, or Click on the "Login" button at the top right.</p>
+            <h3 class="font-bold text-xl mb-2">Programming Languages</h3>
+            <p class="text-gray-600">
+              Master Python, JavaScript, Java, C++, and other popular
+              programming languages with hands-on exercises.
+            </p>
+          </div>
+          <!-- Topic 2 -->
+          <div
+            class="topic-card bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
+          >
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="ri-database-2-line ri-lg text-primary"></i>
             </div>
-
-            <div class="card2">
-                <h2 style="color: green;">Send Feedback</h2>
-                <form id="comment-form">
-                    <input type="text" id="name" placeholder="Name">
-                    <input type="email" id="email" placeholder="Email">
-                    <textarea id="comment" placeholder="Comment"></textarea>
-                    <button id="submit-comment">Submit</button>
-                </form>
-                <!--<div id="comments-container">
-                    Comments will be displayed here 
-                </div>-->
+            <h3 class="font-bold text-xl mb-2">Database Management</h3>
+            <p class="text-gray-600">
+              Learn SQL, NoSQL, and database design principles to efficiently
+              store and retrieve data for applications.
+            </p>
+          </div>
+          <!-- Topic 3 -->
+          <div
+            class="topic-card bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
+          >
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="ri-layout-line ri-lg text-primary"></i>
             </div>
-        </section>
-        
-        <section>
-                <div class="slider">
-                    <img src="slide (1).jpeg">
-                    <img src="slide (2).jpeg">
-                    <img src="slide (3).jpeg">
-                </div>
-                <div class="">
-                    <img src="#">
-                    <button>Apply</button>
-                </div> 
-        </section>
-        
-        <section>
-            <div class="footer">
-                <div>
-                    <h2 style="color:green ">Our Values</h2>
-                    <strong>Innovation</strong>: We stay up-to-date with the latest technologies and trends to ensure our students receive the most relevant training.
-                    <strong>Accessibility</strong>: We believe that computer education should be accessible to everyone, regardless of age, background, or location.
-                    <strong>Excellence</strong>: We’re committed to delivering high-quality training that meets the needs of our students.
-                </div>
-                <div>
-                    <h2 style="color:green;">About Us</h2>
-                    <p>Sharp Computer Training Institution, your premier destination for computer tutorials and training. We’re passionate about empowering individuals with the skills and knowledge they need to thrive in today’s technology-driven world.</p>
-                </div>
-                <div>
-                    <h2 style="color: green;">Our Mission</h2>
-                    <p>At Sharp Computer Training Institution, our mission is to provide high-quality, accessible computer education to students of all ages and backgrounds. We believe that technology has the power to transform lives, and we’re committed to helping our students unlock their full potential.</p>
-                </div>
-                <div>
-                    <h2 style="color: green;">What We Offer</h2>
-                    <strong>Physical Tutorials</strong>: Our experienced instructors provide hands-on training in a supportive and interactive environment.
-                    <strong>Online Tutorials</strong>: Learn from the comfort of your own home with our online tutorials, designed to be engaging, informative, and easy to follow.
-                </div>
-                <div>
-                    <h2 style="color: green;">Join Us</h2>
-                    <p>Whether you’re a student looking to improve your computer skills or a professional seeking to stay ahead of the curve, we invite you to join us on this exciting journey. Let’s unlock the power of technology together!</p>
-                </div>
-            </div>    
-        </section>
+            <h3 class="font-bold text-xl mb-2">UI/UX Design</h3>
+            <p class="text-gray-600">
+              Create intuitive user interfaces and experiences with modern
+              design tools and principles.
+            </p>
+          </div>
+          <!-- Topic 4 -->
+          <div
+            class="topic-card bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
+          >
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="ri-server-line ri-lg text-primary"></i>
+            </div>
+            <h3 class="font-bold text-xl mb-2">DevOps & Infrastructure</h3>
+            <p class="text-gray-600">
+              Master continuous integration, deployment, and infrastructure
+              management using Docker and Kubernetes.
+            </p>
+          </div>
+          <!-- Topic 5 -->
+          <div
+            class="topic-card bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
+          >
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="ri-smartphone-line ri-lg text-primary"></i>
+            </div>
+            <h3 class="font-bold text-xl mb-2">Mobile Development</h3>
+            <p class="text-gray-600">
+              Build native and cross-platform mobile applications for iOS and
+              Android using React Native and Flutter.
+            </p>
+          </div>
+          <!-- Topic 6 -->
+          <div
+            class="topic-card bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
+          >
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="ri-gamepad-line ri-lg text-primary"></i>
+            </div>
+            <h3 class="font-bold text-xl mb-2">Game Development</h3>
+            <p class="text-gray-600">
+              Create engaging games with Unity and Unreal Engine while learning
+              core game design principles.
+            </p>
+          </div>
+        </div>
+      </div>
     
-        <P style="color: white; align-text: center;">&copy; 2025. All rights reserved.</P>
+    </section>
+    <!-- Apply Section -->
+    <section id="apply" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div
+          class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden"
+        >
+          <div class="md:flex">
+            <div class="md:w-1/2 p-8 md:p-12">
+              <h2 class="text-3xl font-bold mb-6">Apply Now</h2>
+              <p class="text-gray-600 mb-8">
+                Take the first step toward mastering computer knowledge and
+                advancing your career.
+              </p>
+              <form>
+                <div class="space-y-4">
+                  <div>
+                    <label
+                      for="name"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Full Name</label
+                    >
+                    <input
+                      type="text"
+                      id="name"
+                      class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors"
+                      placeholder="Ahmad Jumanatu" required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="email"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Email Address</label
+                    >
+                    <input
+                      type="email"
+                      id="email"
+                      class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors"
+                      placeholder="abdussamad@example.com" required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="email"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Phone Number</label
+                    >
+                    <input
+                      type="number"
+                      id="phonenumber"
+                      class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors"
+                      placeholder="08151234227" required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="course"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Interested Course</label
+                    >
+                    <div class="relative">
+                      <select
+                        id="course"
+                        class="w-full px-4 py-2 border border-gray-300 rounded appearance-none focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors pr-8" required
+                      >
+                        <option value="">Select a course</option>
+                        <option value="ms-office">Mircosoft Office</option>
+                        <option value="graphic-design">Graphic Design</option>
+                        <option value="internet">Internet</option>
+                      </select>
+                      <div
+                        class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none"
+                      >
+                        <i class="ri-arrow-down-s-line text-gray-400"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      for="message"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Message (Optional)</label
+                    >
+                    <textarea
+                      id="message"
+                      rows="3"
+                      class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors"
+                      placeholder="Tell us about your learning goals..."
+                    ></textarea>
+                  </div>
+                  <div class="flex items-center">
+                    <label class="custom-checkbox flex items-center">
+                      <input type="checkbox" class="hidden" required/>
+                      <span class="checkmark"></span>
+                      <span class="ml-7 text-sm text-gray-600"
+                        >I agree to receive updates about courses and
+                        promotions</span
+                      >
+                    </label>
+                  </div>
+                  <button
+                    type="submit"
+                    class="w-full bg-primary text-white py-3 rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap"
+                  >
+                    Submit Application
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div
+              class="md:w-1/2 bg-blue-600 p-8 md:p-12 text-white flex flex-col justify-center"
+            >
+              <h3 class="text-2xl font-bold mb-4">Why Join Our Program?</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <div
+                    class="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-full bg-blue-500 mr-3 mt-0.5"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <p>Expert instructors with long-term experience</p>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-full bg-blue-500 mr-3 mt-0.5"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <p>Fexible and affordable</p>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-full bg-blue-500 mr-3 mt-0.5"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <p>Easy and complex</p>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-full bg-blue-500 mr-3 mt-0.5"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <p>Physical and online Tutorials</p>
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-full bg-blue-500 mr-3 mt-0.5"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <p>Nationwide acceptable Certificate</p>
+                </li>
+              </ul>
+              <div class="mt-8">
+                <p class="text-blue-200 font-medium">Have questions?</p>
+                <p class="text-white">
+                  Contact us at
+                  <a href="mailto:info@techlearn.com" class="underline"
+                    >hanifshuaib17@gmail.com | +234 815 123 4227</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials Section --> 
+     <!--<section class="py-16 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">What Our Students Say</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Hear from our community of learners who have transformed their
+            careers through our courses.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="bg-gray-50 rounded-lg p-6 border border-gray-100">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4"
+              >
+                <img
+                  src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20woman%20with%20short%20dark%20hair%2C%20neutral%20background%2C%20professional%20portrait%2C%20high%20quality&width=100&height=100&seq=7&orientation=squarish"
+                  alt="Emily Robertson"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h4 class="font-bold">Emily Robertson</h4>
+                <p class="text-sm text-gray-500">Web Developer</p>
+              </div>
+            </div>
+            <p class="text-gray-600">
+              "The web development course completely transformed my career.
+              Within three months of completing it, I landed my dream job at a
+              tech startup. The hands-on projects were invaluable for building
+              my portfolio."
+            </p>
+            <div class="mt-4 flex text-yellow-400">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="bg-gray-50 rounded-lg p-6 border border-gray-100">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4"
+              >
+                <img
+                  src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20middle-aged%20man%20with%20glasses%2C%20neutral%20background%2C%20professional%20portrait%2C%20high%20quality&width=100&height=100&seq=8&orientation=squarish"
+                  alt="Michael Chen"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h4 class="font-bold">Michael Chen</h4>
+                <p class="text-sm text-gray-500">Data Scientist</p>
+              </div>
+            </div>
+            <p class="text-gray-600">
+              "As someone transitioning from finance to tech, the data science
+              course provided exactly what I needed. The instructors were
+              incredibly knowledgeable and supportive throughout my learning
+              journey."
+            </p>
+            <div class="mt-4 flex text-yellow-400">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-half-fill"></i>
+            </div>
+          </div>
+          <!-- Testimonial 3 <div class="bg-gray-50 rounded-lg p-6 border border-gray-100">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4"
+              >
+                <img
+                  src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20man%20with%20beard%2C%20neutral%20background%2C%20professional%20portrait%2C%20high%20quality&width=100&height=100&seq=9&orientation=squarish"
+                  alt="David Williams"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h4 class="font-bold">David Williams</h4>
+                <p class="text-sm text-gray-500">Cybersecurity Analyst</p>
+              </div>
+            </div>
+            <p class="text-gray-600">
+              "The cybersecurity program exceeded my expectations. The practical
+              labs and real-world scenarios prepared me for the challenges I now
+              face daily in my role protecting critical infrastructure."
+            </p>
+            <div class="mt-4 flex text-yellow-400">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
     
-    </main>
-    <script src="script/index.js"></script>
-</body>
+    <!-- Comment Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Community Discussion</h2>
+            <p class="text-gray-600">
+              Join the conversation and share your thoughts with fellow tech
+              enthusiasts.
+            </p>
+          </div>
+          <!-- Comment Form -->
+          <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h3 class="font-bold text-xl mb-4">Leave a Comment</h3>
+            <div class="flex gap-4">
+              <div
+                class="w-10 h-10 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden"
+              >
+                <img
+                  src="https://readdy.ai/api/search-image?query=generic%20user%20avatar%20silhouette%2C%20minimal%20design%2C%20neutral%20background&width=100&height=100&seq=10&orientation=squarish"
+                  alt="User"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="flex-grow">
+                <textarea
+                  class="w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors mb-3"
+                  rows="3"
+                  placeholder="Share your thoughts..."
+                ></textarea>
+                <button
+                  class="bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap"
+                >
+                  Post Comment
+                </button>
+              </div>
+            </div>
+          </div>
+          <!--
+           Comments List 
+          <div class="space-y-6">
+             Comment 1 
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden"
+                >
+                  <img
+                    src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20woman%20with%20long%20hair%2C%20neutral%20background%2C%20professional%20portrait%2C%20high%20quality&width=100&height=100&seq=11&orientation=squarish"
+                    alt="Sarah Johnson"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="flex-grow">
+                  <div class="flex justify-between items-start mb-2">
+                    <div>
+                      <h4 class="font-bold">Sarah Johnson</h4>
+                      <p class="text-sm text-gray-500">May 22, 2025</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 mb-4">
+                    I've been looking into the Data Science course and wondering
+                    if it's suitable for someone with minimal programming
+                    experience? Does it cover the basics or should I take a
+                    programming course first?
+                  </p>
+                  <div class="flex items-center gap-4">
+                    <button
+                      class="flex items-center text-gray-500 hover:text-primary"
+                    >
+                      <i class="ri-thumb-up-line mr-1"></i>
+                      <span>12</span>
+                    </button>
+                    <button class="text-gray-500 hover:text-primary">
+                      Reply
+                    </button>
+                  </div> -->
+
+                  <!-- Nested Reply 
+                  <div class="mt-6 pl-6 border-l-2 border-gray-100">
+                    <div class="flex items-start gap-4">
+                      <div
+                        class="w-8 h-8 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden"
+                      >
+                        <img
+                          src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20middle-aged%20woman%20with%20glasses%2C%20neutral%20background%2C%20professional%20portrait%2C%20high%20quality&width=100&height=100&seq=12&orientation=squarish"
+                          alt="Lisa Taylor"
+                          class="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-2">
+                          <div>
+                            <h4 class="font-bold">Lisa Taylor</h4>
+                            <p class="text-sm text-gray-500">May 23, 2025</p>
+                          </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">
+                          Hi Sarah! I took the Data Science course with minimal
+                          Python experience. The first module covers programming
+                          basics, so you should be fine. They also provide
+                          additional resources if you need extra help.
+                        </p>
+                        <div class="flex items-center gap-4">
+                          <button
+                            class="flex items-center text-gray-500 hover:text-primary"
+                          >
+                            <i class="ri-thumb-up-line mr-1"></i>
+                            <span>8</span>
+                          </button>
+                          <button class="text-gray-500 hover:text-primary">
+                            Reply
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+             Comment 2 
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden"
+                >
+                  <img
+                    src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20young%20man%20with%20glasses%2C%20neutral%20background%2C%20professional%20portrait%2C%20high%20quality&width=100&height=100&seq=13&orientation=squarish"
+                    alt="James Wilson"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="flex-grow">
+                  <div class="flex justify-between items-start mb-2">
+                    <div>
+                      <h4 class="font-bold">James Wilson</h4>
+                      <p class="text-sm text-gray-500">May 20, 2025</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 mb-4">
+                    Just completed the Web Development bootcamp and it was
+                    fantastic! The project-based approach really helped solidify
+                    my understanding. I've already started freelancing and
+                    building my portfolio.
+                  </p>
+                  <div class="flex items-center gap-4">
+                    <button
+                      class="flex items-center text-gray-500 hover:text-primary"
+                    >
+                      <i class="ri-thumb-up-line mr-1"></i>
+                      <span>24</span>
+                    </button>
+                    <button class="text-gray-500 hover:text-primary">
+                      Reply
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            Comment 3
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden"
+                >
+                  <img
+                    src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20an%20older%20man%2C%20neutral%20background%2C%20professional%20portrait%2C%20high%20quality&width=100&height=100&seq=14&orientation=squarish"
+                    alt="Robert Garcia"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="flex-grow">
+                  <div class="flex justify-between items-start mb-2">
+                    <div>
+                      <h4 class="font-bold">Robert Garcia</h4>
+                      <p class="text-sm text-gray-500">May 18, 2025</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 mb-4">
+                    Are there any discounts available for the Cybersecurity
+                    course if you've already completed another course on the
+                    platform? I finished the Cloud Computing course last month
+                    and would like to continue my education.
+                  </p>
+                  <div class="flex items-center gap-4">
+                    <button
+                      class="flex items-center text-gray-500 hover:text-primary"
+                    >
+                      <i class="ri-thumb-up-line mr-1"></i>
+                      <span>5</span>
+                    </button>
+                    <button class="text-gray-500 hover:text-primary">
+                      Reply
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <div class="mt-8 text-center">
+            <button
+              class="bg-white border border-gray-300 text-gray-700 px-6 py-2 rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap"
+            >
+              Load More Comments
+            </button>
+          </div> 
+        </div>
+      </div>
+    </section> -->
+    
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-blue-600 text-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-4">Stay Updated with Sharp Computer</h2>
+          <p class="mb-8">
+            Subscribe to our newsletter for the latest course updates, tech
+            news, and exclusive offers.
+          </p>
+          <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+            <input
+              type="email"
+              placeholder="Your email address"
+              class="flex-grow px-4 py-3 rounded-button border-none text-gray-800 focus:ring-2 focus:ring-blue-300 outline-none"
+            />
+            <button
+              type="submit"
+              class="bg-white text-primary px-6 py-3 rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap"
+            >
+              Subscribe
+            </button>
+          </form>
+          <p class="mt-4 text-sm text-blue-200">
+            We respect your privacy. Unsubscribe at any time.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    
+    <footer class="bg-gray-800 text-gray-300 pt-16 pb-8">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-4">TechLearn</h3>
+            <p class="mb-4">
+              Empowering tech enthusiasts with comprehensive computer knowledge
+              and practical skills since 2013.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors"
+              >
+                <i class="ri-facebook-fill text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors"
+              >
+                <i class="ri-twitter-x-fill text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors"
+              >
+                <i class="ri-linkedin-fill text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors"
+              >
+                <i class="ri-instagram-fill text-white"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="#courses" class="hover:text-primary transition-colors"
+                  >Courses</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Instructors</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white mb-4">Courses</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Microsoft Office</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Graphic Design</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Internet</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition-colors"
+                  >Industrial Training (IT)</a
+                >
+              </li>
+              <li>
+                <a href="courses.html" class="hover:text-primary transition-colors"
+                  >View All Courses</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white mb-4">Contact Us</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="ri-map-pin-line mt-1 mr-3"></i>
+                <span>Shop A4, Groud Floor, Garkuwa Plaza, Shuaibu Dagaci Street, Bakin Iku, Suleja, Niger State.</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-phone-line mr-3"></i>
+                <span>08151234227</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-mail-line mr-3"></i>
+                <span>hanifshuaib17@gmail.com</span>
+              </li>
+              <li class="flex items-center">
+                <i class="ri-time-line mr-3"></i>
+                <span>Mon-Sat: 9AM-9PM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="pt-8 border-t border-gray-700 text-sm">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p>&copy; 2025 Sharp Computer. All rights reserved.</p>
+            <div class="flex mt-4 md:mt-0 space-x-6">
+              <a href="#" class="hover:text-primary transition-colors"
+                >Privacy Policy</a
+              >
+              <a href="#" class="hover:text-primary transition-colors"
+                >Terms of Service</a
+              >
+              <a href="#" class="hover:text-primary transition-colors"
+                >Cookie Policy</a
+              >
+            </div>
+          </div>
+          <div class="mt-6 flex justify-center space-x-4">
+            <i class="ri-visa-fill text-2xl text-gray-400"></i>
+            <i class="ri-mastercard-fill text-2xl text-gray-400"></i>
+            <i class="ri-paypal-fill text-2xl text-gray-400"></i>
+            <i class="ri-apple-fill text-2xl text-gray-400"></i>
+            <i class="ri-google-fill text-2xl text-gray-400"></i>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <script id="mobile-menu-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+          if (mobileMenu.classList.contains("hidden")) {
+            mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+          } else {
+            mobileMenuButton.innerHTML = '<i class="ri-close-line ri-lg"></i>';
+          }
+        });
+      });
+    </script>
+    <script id="slider-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const slider = document.getElementById("card-slider");
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+        const dots = document
+          .getElementById("slider-dots")
+          .querySelectorAll(".slider-dot");
+        const cardWidth = 288; // 272px card width + 16px gap
+        let currentIndex = 0;
+        function updateSlider() {
+          slider.scrollLeft = currentIndex * cardWidth;
+          // Update dots
+          dots.forEach((dot, index) => {
+            if (index === currentIndex) {
+              dot.classList.add("active");
+              dot.classList.add("w-6");
+              dot.classList.remove("w-2");
+              dot.classList.add("bg-primary");
+              dot.classList.remove("bg-gray-300");
+            } else {
+              dot.classList.remove("active");
+              dot.classList.remove("w-6");
+              dot.classList.add("w-2");
+              dot.classList.remove("bg-primary");
+              dot.classList.add("bg-gray-300");
+            }
+          });
+        }
+        prevBtn.addEventListener("click", function () {
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+          }
+        });
+        nextBtn.addEventListener("click", function () {
+          if (currentIndex < 2) {
+            // We have 5 cards, showing 3 at a time, so 2 possible positions
+            currentIndex++;
+            updateSlider();
+          }
+        });
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", function () {
+            currentIndex = index;
+            updateSlider();
+          });
+        });
+        // Touch events for mobile
+        let startX, endX;
+        slider.addEventListener("touchstart", function (e) {
+          startX = e.touches[0].clientX;
+        });
+        slider.addEventListener("touchend", function (e) {
+          endX = e.changedTouches[0].clientX;
+          if (startX - endX > 50 && currentIndex < 2) {
+            // Swipe left
+            currentIndex++;
+            updateSlider();
+          } else if (endX - startX > 50 && currentIndex > 0) {
+            // Swipe right
+            currentIndex--;
+            updateSlider();
+          }
+        });
+      });
+    </script>
+
+    document.addEventListener('DOMContentLoaded', function() { const header =
+    document.querySelector('header'); const homeLink =
+    document.getElementById('home-link'); homeLink.addEventListener('click',
+    function(e) { e.preventDefault(); window.scrollTo({ top: 0, behavior:
+    'smooth' }); }); ======= const headerHeight = header.offsetHeight; function
+    updateHeader() { if (window.scrollY > 50) {
+    header.classList.add('shadow-md'); header.classList.remove('shadow-sm'); }
+    else { header.classList.remove('shadow-md');
+    header.classList.add('shadow-sm'); } } window.addEventListener('scroll',
+    updateHeader); updateHeader(); });
+
+    <script id="form-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const checkboxes = document.querySelectorAll(
+          '.custom-checkbox input[type="checkbox"]',
+        );
+        checkboxes.forEach((checkbox) => {
+          checkbox.addEventListener("change", function () {
+            const checkmark = this.nextElementSibling;
+            if (this.checked) {
+              checkmark.classList.add("bg-primary");
+              checkmark.classList.add("border-primary");
+            } else {
+              checkmark.classList.remove("bg-primary");
+              checkmark.classList.remove("border-primary");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
